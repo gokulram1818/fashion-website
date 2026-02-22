@@ -1,0 +1,62 @@
+.footer-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-logo {
+  width: 110px;
+  filter: brightness(1.1);
+}
+
+.ls-wide {
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #adb5bd !important;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #ffffff !important;
+  transform: translateX(5px);
+}
+
+.admin-tag {
+    opacity: 0.6;
+    font-size: 0.85rem;
+}
+
+.contact-details p {
+  transition: color 0.3s ease;
+}
+
+.social-circle {
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #adb5bd;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-circle:hover {
+  background: white;
+  color: black;
+  border-color: white;
+}
+
+@media (max-width: 768px) {
+  .footer-link:hover {
+    transform: none; 
+  }
+}

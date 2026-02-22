@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.hero-back{
+    background-color: rgb(233, 233, 227);
+    margin-top: 74px;
+    padding: 0 !important;
+    min-height: 40vh;
+    
+}
+.row-abt {
+  margin: 0 !important;
+}
+.bttn{
+    background-color: rgb(173, 93, 93);
+}
+.abt{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 48px);
+}
+.hero-abt-image-div{
+    max-height: 60vh;
+  object-fit: cover;
+}
+.para{
+    text-align: justify;
+    color: grey;
+    font-weight: 400;
+    font-size: clamp(12px, 2.5vw, 16px);
+    font-family:'Montserrat', sans-serif;
+    margin-top: 2px;
+}
+.bttn {
+  width: clamp(120px, 40%, 180px);
+  font-size: clamp(12px, 2vw, 16px);
+}
+.bttn:hover{
+    background: #8b4d4d;
+    color: white;
+}
+.story-section{
+  font-family: 'Montserrat', sans-serif;
+  text-align: justify;
+}
+
+.story-img{
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 520px;
+  width: 100%;
+}
+
+.section-tag{
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: #a05a5a;
+  font-weight: 600;
+}
+
+.abt-title{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  margin-bottom: 12px;
+}
+
+.story-text{
+  color: #555;
+  line-height: 1.8;
+  font-size: clamp(14px, 2vw, 16px);
+  margin-bottom: 10px;
+  
+}
+
+.story-btn{
+  background: #a05a5a;
+  color: white;
+  border-radius: 30px;
+  padding: 8px 22px;
+  font-size: 14px;
+}
+
+.story-btn:hover{
+  background: #8b4d4d;
+  color: white;
+}
+.why-us-head{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  margin-bottom: 12px;
+  
+}
+.why-choose-us{
+    border-right: 1px rgb(231, 228, 228) solid;
+}
+.our-values{
+font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  margin-bottom: 12px;
+}
+.three-img1{
+    width: 185px;
+}
+.three-img2{
+    width: 200px;
+}
+
+.three-img3{
+    width: 100px;
+}
+
+
+
+@media (max-width: 768px){
+  .story-text {
+    text-align: left;
+  }
+  .story-img {
+    max-height: 360px;
+  }
+}

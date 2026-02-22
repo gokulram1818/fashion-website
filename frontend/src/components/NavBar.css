@@ -1,0 +1,33 @@
+.account-wrapper {
+  position: relative;
+}
+
+
+.account-dropdown {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  width: 160px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 999;
+  overflow: hidden;
+}
+
+
+.dropdown-item {
+  display: block;
+  padding: 12px 16px;
+  color: black;
+  text-decoration: none;
+  background: white;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: #f5f5f5;
+}

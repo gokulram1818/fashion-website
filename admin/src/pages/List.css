@@ -1,0 +1,33 @@
+.list-img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  transition: transform 0.2s ease;
+}
+
+.list-row:hover {
+  background-color: #f8f9fa !important;
+}
+
+.list-row:hover .list-img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .list-img {
+    width: 45px;
+    height: 45px;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+
+
+  .table thead th:nth-child(3),
+  .table tbody td:nth-child(3) {
+    display: none;
+  }
+}

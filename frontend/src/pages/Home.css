@@ -1,0 +1,86 @@
+.hero {
+  background-image: url('../assets/hero-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.word {
+  height: 100%;
+}
+
+
+.words {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.sub-word {
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+}
+
+
+.discover-btn {
+  border: 2px solid rgb(197, 168, 123);
+  color: rgb(197, 168, 123);
+  font-size: clamp(1rem, 1.8vw, 1.6rem);
+  padding: 12px 20px !important;
+  letter-spacing: 1px;
+}
+
+.discover-btn:hover {
+  box-shadow: 0 0 8px rgba(197, 168, 123, 0.6);
+}
+
+
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+
+@media (max-width: 992px) {
+  .words {
+    line-height: 1.1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .word {
+    align-items: center !important;
+    justify-content: center;
+  }
+
+  .discover-btn {
+    width: 70% !important;
+    margin: 10px auto;
+  }
+
+  .hero img {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero img {
+    max-width: 90%;
+  }
+}

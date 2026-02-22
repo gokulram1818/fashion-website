@@ -1,0 +1,102 @@
+.product-page {
+  margin-top: 80px;
+}
+
+
+
+.main-box {
+  width: 100%;
+  aspect-ratio: 3 / 4;       
+  overflow: hidden;
+  background: #f6f6f6;
+  height: 520px;
+  max-height: 520px;
+}
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         
+  object-position: center;
+}
+
+
+
+.thumb-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumb {
+  width: 80px;
+  height: 90px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: 0.2s;
+}
+
+.thumb.active {
+  border: 2px solid black;
+}
+
+
+
+.size-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.size-btn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: white;
+  transition: 0.2s;
+}
+
+.size-btn.active {
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+
+
+.add-cart-btn {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.add-cart-btn:hover {
+  background: #333;
+}
+
+
+
+@media (max-width: 768px) {
+
+  .main-box {
+    aspect-ratio: 2.8 / 4;  
+    height: 360px;
+    max-height: 360px;  
+  }
+
+  .thumb-col {
+    flex-direction: row !important;
+    overflow-x: auto;
+    margin-top: 10px;
+  }
+
+  .thumb {
+    width: 70px !important;
+    height: 75px !important;
+    margin-right: 8px;
+  }
+}

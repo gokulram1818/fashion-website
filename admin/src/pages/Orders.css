@@ -1,0 +1,31 @@
+.ls-1 {
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.hover-shadow {
+  transition: all 0.25s ease-in-out;
+  border-left: 4px solid transparent !important;
+}    
+
+.hover-shadow:hover {
+  border-left: 4px solid #198754 !important; 
+  transform: translateX(5px);
+  background-color: #f8f9fa;
+}
+
+.form-select-sm {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.order-id-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .hover-shadow:hover {
+        transform: none;
+    }
+}
