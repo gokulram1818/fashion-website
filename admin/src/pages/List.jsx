@@ -24,14 +24,14 @@ const List = () => {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ productId }),
-    });
+    })
 
     const data = await res.json();
 
     if (data.success) {
+       setCollection((prev) => prev.filter((item) => item._id !== productId))
       alert("Product Removed Successfully ")
 
-      setCollection((prev) => prev.filter((item) => item._id !== productId))
     } else {
       alert(data.message)
     }

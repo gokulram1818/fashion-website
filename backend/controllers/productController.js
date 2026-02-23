@@ -1,20 +1,36 @@
 import productModel from '../models/productModel.js'
-import {v2 as cloudinary} from 'cloudinary'
+import  {v2 as cloudinary} from 'cloudinary'
 
 
 const addProduct = async (req, res) => {
   try {
     const { name, description, price, category, subCategory, bestSeller, sizes } = req.body;
 
-    const images = [];
+    const imageFiles = [
+      req.files?.image1?.[0],
+      req.files?.image2?.[0],
+      req.files?.image3?.[0],
+      req.files?.image4?.[0],
+    ].filter(Boolean); 
 
-    if (req.files?.image1) images.push(req.files.image1[0].path);
-    if (req.files?.image2) images.push(req.files.image2[0].path);
-    if (req.files?.image3) images.push(req.files.image3[0].path);
-    if (req.files?.image4) images.push(req.files.image4[0].path);
-
-    if (images.length === 0) {
+    if (imageFiles.length === 0) {
       return res.json({ success: false, message: "No images uploaded" });
+    }
+
+    const imageUrls = [];
+
+    for (const file of imageFiles) {
+      const uploadResult = await new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream(
+          { folder: "products" }, 
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        ).end(file.buffer)
+      })
+
+      imageUrls.push(uploadResult.secure_url);
     }
 
     const productData = {
@@ -24,21 +40,25 @@ const addProduct = async (req, res) => {
       category,
       subCategory,
       bestSeller: bestSeller === "true",
-      sizes: sizes ? JSON.parse(sizes) : [], 
-      image: images,
-      date: Date.now()
+      sizes: Array.isArray(sizes) ? sizes : JSON.parse(sizes),
+      image: imageUrls, 
+      date: Date.now(),
     };
 
     const product = new productModel(productData);
     await product.save();
 
-    res.json({ success: true, message: "Product Added Successfully" });
+    res.json({
+      success: true,
+      message: "Product Added Successfully",
+      product,
+    });
 
   } catch (error) {
-    console.log("ADD PRODUCT ERROR:", error)
+    console.log("CLOUDINARY ERROR:", error);
     res.status(500).json({ success: false, message: error.message });
   }
-}
+};
 
 const listProduct = async (req, res) => {
     try{
@@ -51,7 +71,8 @@ const listProduct = async (req, res) => {
 
 const removeProduct = async (req, res) => {
     try {
-        await productModel.findByIdAndDelete(req.body.id)
+        const {productId} = req.body
+        await productModel.findByIdAndDelete(productId)
         res.json({success: true, message: "product removed"})
     } catch (error) {
         console.log(error)
