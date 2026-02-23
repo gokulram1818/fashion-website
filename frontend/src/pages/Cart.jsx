@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const [cartItems, setCartItems] = useState([])
   const [loading, setLoading] = useState(true)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
 
   const fetchCart = async () => {
@@ -18,7 +18,7 @@ const Cart = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      });
+      })
 
       const data = await res.json();
 
@@ -26,7 +26,7 @@ const Cart = () => {
         setCartItems(data.items);
       }
 
-      setLoading(false);
+      setLoading(false)
     } catch (error) {
       console.error("Cart Fetch Error:", error)
       setLoading(false);
@@ -35,10 +35,10 @@ const Cart = () => {
 
   useEffect(() => {
     fetchCart()
-  }, []);
+  }, [])
 
   const updateQuantity = async (productId, size, newQuantity) => {
-    if (newQuantity < 1) return;
+    if (newQuantity < 1) return
 
     try {
       const token = localStorage.getItem("token");
@@ -90,7 +90,7 @@ const Cart = () => {
     } catch (error) {
       console.error("Remove Item Error:", error)
     }
-  };
+  }
 
   const calculateSubtotal = () => {
     return cartItems.reduce(
@@ -117,16 +117,9 @@ const Cart = () => {
             <h4>Your cart is empty</h4>
           ) : (
             cartItems.map((item, index) => (
-              <div
-                key={index}
-                className="row align-items-center border rounded p-3 mb-3 shadow-sm bg-white"
-              >
+              <div key={index} className="row align-items-center border rounded p-3 mb-3 shadow-sm bg-white">
                 <div className="col-md-2 col-4">
-                  <img
-                    src={item.product.image[0]}
-                    alt={item.product.name}
-                    className="img-fluid rounded"
-                  />
+                  <img src={item.product.image[0]} alt={item.product.name} className="img-fluid rounded" />
                 </div>
 
                 <div className="col-md-4 col-8">
@@ -138,8 +131,7 @@ const Cart = () => {
                 </div>
 
                 <div className="col-md-3 col-6 mt-3 mt-md-0 d-flex align-items-center">
-                  <button
-                    className="btn btn-sm btn-outline-secondary"
+                  <button className="btn btn-sm btn-outline-secondary"
                     onClick={() =>
                       updateQuantity(
                         item.product._id,
@@ -155,8 +147,7 @@ const Cart = () => {
                     {item.quantity}
                   </span>
 
-                  <button
-                    className="btn btn-sm btn-outline-secondary"
+                  <button className="btn btn-sm btn-outline-secondary"
                     onClick={() =>
                       updateQuantity(
                         item.product._id,
@@ -174,8 +165,7 @@ const Cart = () => {
                     ₹{item.product.price * item.quantity}
                   </h5>
 
-                  <button
-                    className="btn btn-sm btn-outline-danger"
+                  <button className="btn btn-sm btn-outline-danger"
                     onClick={() =>
                       removeItem(item.product._id, item.size)
                     }
@@ -224,4 +214,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Cart

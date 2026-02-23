@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import upload_img from '../assets/upload_img.png'
 import './Home.css'
 

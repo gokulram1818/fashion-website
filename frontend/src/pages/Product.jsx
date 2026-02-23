@@ -60,22 +60,13 @@ const handleAddToCart = async () => {
       <div className="row">
         <div className="col-md-1 col-12 order-md-1 order-2 thumb-col">
           {product.image?.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              className={`thumb ${activeImg === i ? "active" : ""}`}
-              onClick={() => setActiveImg(i)}
-            />
+            <img key={i}  src={img} className={`thumb ${activeImg === i ? "active" : ""}`} onClick={() => setActiveImg(i)} />
           ))}
         </div>
 
-
         <div className="col-md-5 col-12 order-md-2 order-1">
           <div className="main-box">
-            <img
-              src={product.image?.[activeImg]}
-              className="main-img"
-            />
+            <img src={product.image?.[activeImg]} className="main-img" />
           </div>
         </div>
 

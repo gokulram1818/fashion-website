@@ -27,7 +27,7 @@ const Checkout = () => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
+      })
 
       const data = await res.json()
 
@@ -38,7 +38,7 @@ const Checkout = () => {
       setLoading(false);
     } catch (error) {
       console.error("Cart Fetch Error:", error)
-      setLoading(false);
+      setLoading(false)
     }
   };
 
