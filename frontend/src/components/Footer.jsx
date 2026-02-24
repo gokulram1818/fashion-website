@@ -2,6 +2,10 @@ import React from 'react'
 import './Footer.css'
 import logo2 from '../assets/logo.png'
 import { Link } from 'react-router-dom'
+import twit from '../assets/twitter.png'
+import face from '../assets/facebook.png'
+import insta from '../assets/insta.png'
+
 
 const Footer = () => {
   return (
@@ -35,9 +39,9 @@ const Footer = () => {
               <p className="mb-4"><span className="text-white me-2">✉️</span> admin@trends.com</p>
             </div>
             <div className="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
-               <div className="social-circle">f</div>
-               <div className="social-circle">t</div>
-               <div className="social-circle">i</div>
+               <div className="social-circle"><a href="https://r.search.yahoo.com/_ylt=AwrKEwvsdZ1pFAIAP3W7HAx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1773136620/RO=10/RU=https%3a%2f%2fwww.facebook.com%2f/RK=2/RS=M.haStfTHposIry9V.MvZntBNzA-"><img className='social-img' src={face} alt="" /></a></div>
+               <div className="social-circle"><a href="https://r.search.yahoo.com/_ylt=AwrKDybPdZ1pBwIAn.K7HAx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1773136591/RO=10/RU=https%3a%2f%2ftwitter.com%2f%3flang%3den-in/RK=2/RS=dto9f5jMg3nQtwitjN6WQcRmjFg-"><img className='social-img' src={twit} alt="" /></a></div>
+               <div className="social-circle"><a href="https://r.search.yahoo.com/_ylt=Awr1ScICdp1pTAIAL8u7HAx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1773136642/RO=10/RU=https%3a%2f%2fwww.instagram.com%2f/RK=2/RS=yH3zWs8RIm1h1UDtBsMBNJm_qEE-"><img className='social-img' src={insta} alt="" /></a></div>
             </div>
           </div>
 

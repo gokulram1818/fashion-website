@@ -29,7 +29,7 @@ const Cart = () => {
       setLoading(false)
     } catch (error) {
       console.error("Cart Fetch Error:", error)
-      setLoading(false);
+      setLoading(false)
     }
   };
 

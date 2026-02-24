@@ -3,6 +3,38 @@ import order_img from '../assets/order.png'
 
 const Orders = () => {
   const [orders, setOrders] = useState([])
+  const handleStatusChange = async (orderId, newStatus) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const res = await fetch("http://localhost:5000/api/orders/update-status", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        orderId,
+        status: newStatus,
+      }),
+    })
+
+    const data = await res.json();
+
+    if (data.success) {
+      
+      setOrders((prev) =>
+        prev.map((order) =>
+          order._id === orderId ? { ...order, status: newStatus } : order
+        )
+      )
+    } else {
+      alert(data.message);
+    }
+  } catch (error) {
+    console.error("Status update failed:", error);
+  }
+};
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -10,15 +42,15 @@ const Orders = () => {
       try {
         const res = await fetch("http://localhost:5000/api/orders/all", {
           headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await res.json();
-        if (data.success) setOrders(data.orders);
+        })
+        const data = await res.json()
+        if (data.success) setOrders(data.orders)
       } catch (err) {
         console.error("Failed to fetch orders", err)
       }
-    };
-    fetchOrders();
-  }, []);
+    }
+    fetchOrders()
+  }, [])
 
   return (
     <div className="container mt-5 px-lg-4">
@@ -72,7 +104,8 @@ const Orders = () => {
                     <span className="text-muted small fw-bold text-uppercase ls-1">Order Status</span>
                     <select 
                       className="form-select form-select-sm mt-1 fw-semibold border-secondary-subtle" 
-                      defaultValue={o.status}
+                      value={o.status}
+                      onChange={(e)=>handleStatusChange(o._id, e.target.value)}
                     >
                       <option value="Order Placed">Order Placed</option>
                       <option value="Packing">Packing</option>

@@ -47,6 +47,12 @@
   color: #adb5bd;
   cursor: pointer;
   transition: 0.3s;
+  
+}
+.social-img{
+  object-fit:  cover;
+  width: 35px;
+  height: 35px;
 }
 
 .social-circle:hover {
